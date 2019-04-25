@@ -16,6 +16,9 @@
   - [ConcurrentHashMap 的实现原理](thread/ConcurrentHashMap.md)
   - [如何优雅的使用和理解线程池](thread/ThreadPoolExecutor.md)
   - [深入理解线程通信](thread/thread-communication.md)
+  - [一个线程罢工的诡异事件](thread/thread-gone.md)
+  - [线程池中你不容错过的一些细节](thread/thread-gone2.md)
+  - [『并发包入坑指北』之阻塞队列](thread/ArrayBlockingQueue.md)
 
 - JVM
 
@@ -56,6 +59,7 @@
   - [MySQL 索引原理](db/MySQL-Index.md)
   - [SQL 优化](db/SQL-optimization.md)
   - [数据库水平垂直拆分](db/DB-split.md)
+  - [一次分表踩坑实践的探讨](db/sharding-db.md)
 
 - 数据结构与算法
 
