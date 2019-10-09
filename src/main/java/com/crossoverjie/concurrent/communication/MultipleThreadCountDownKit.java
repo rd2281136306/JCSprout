@@ -11,17 +11,23 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public final class MultipleThreadCountDownKit {
 
-    private AtomicInteger count ;
+    /**
+     * 计数器
+     */
+    private AtomicInteger counter;
 
+    /**
+     * 通知对象
+     */
     private Object notify ;
 
     private Notify notifyListen ;
 
     public MultipleThreadCountDownKit(int number){
         if (number < 0) {
-            throw new IllegalArgumentException("count < 0");
+            throw new IllegalArgumentException("counter < 0");
         }
-        count = new AtomicInteger(number) ;
+        counter = new AtomicInteger(number) ;
         notify = new Object() ;
     }
 
@@ -38,7 +44,12 @@ public final class MultipleThreadCountDownKit {
      * 线程完成后计数 -1
      */
     public void countDown(){
-        int count = this.count.decrementAndGet();
+
+        if (counter.get() <= 0){
+            return;
+        }
+
+        int count = this.counter.decrementAndGet();
         if (count < 0){
             throw new RuntimeException("concurrent error") ;
         }
@@ -57,7 +68,7 @@ public final class MultipleThreadCountDownKit {
      */
     public void await() throws InterruptedException {
         synchronized (notify){
-            while (count.get() > 0){
+            while (counter.get() > 0){
                 notify.wait();
             }
 

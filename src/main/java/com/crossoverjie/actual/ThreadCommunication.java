@@ -81,7 +81,7 @@ public class ThreadCommunication {
     }
 
     private static void countDownLatch() throws Exception {
-        int thread = 3;
+        int thread = 2;
         long start = System.currentTimeMillis();
         final CountDownLatch countDown = new CountDownLatch(thread);
         for (int i = 0; i < thread; i++) {
